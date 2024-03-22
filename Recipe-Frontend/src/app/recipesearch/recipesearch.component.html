@@ -1,0 +1,49 @@
+
+<section class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+    <div class="mb-3 pt-0">
+    <form (submit)="searchRecipes()">
+     <input [(ngModel)]="searchQuery" name="searchQuery" placeholder="Search query" type="text" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full">
+     <input [(ngModel)]="cuisineType" name="cuisineType" placeholder="Cuisine type" type="text" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full">
+     <input [(ngModel)]="mealType" name="mealType" placeholder="Meal type" type="text" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full">
+     <input [(ngModel)]="diet" name="diet" placeholder="Diet" type="text" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full">
+      <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
+      type="submit" (click)="searchRecipes()">Search Recipes</button>
+    </form>
+  </div>
+
+  <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
+@for (recipe of recipes; track recipe) {
+  <!-- <h3>{{ recipe.title }}</h3>
+  <img src="{{recipe.image}}" alt="#">
+  <p>{{recipe.totalTime}}</p>
+  <p>{{recipe.selfrefrence}}</p>
+  <p>{{recipe.calories}} calories</p>
+  <ul>
+    @for (ingredientLine of recipe.ingredientLines; track ingredientLine) {
+    <li>{{ingredientLine}}</li>
+    }
+  </ul> -->
+  <article class="rounded overflow-hidden shadow-lg flex flex-col">
+    <figure class="relative">
+        <img class="w-full" [src]="recipe.image" [alt]="recipe.title">
+        <div class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-25"></div>
+    </figure>
+    <div class="px-6 py-4 mb-auto">
+        <h2 href="#" class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{ recipe.title }}</h2>
+        <!-- <p class="text-gray-500 text-sm">{{recipe.selfrefrence}}</p> -->
+    </div>
+    <div class="px-6 py-3 flex flex-row items-center justify-between bg-gray-100">
+        <span class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+            <span class="ml-1">{{recipe.totalTime}} min</span>
+        </span>
+        <span class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
+        <span class="ml-1">{{ roundUp(recipe.calories) }} calories</span>
+      </span>
+    </div>
+  </article>
+
+} @empty {
+  <p>There are no Recipes</p>
+}
+</section>
+</section>
