@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipesService } from '../services/recipes.service';
 import { RouterLink } from '@angular/router';
 import { AsyncPipe } from '@angular/common';
 import { filter } from 'rxjs';
 import { FormsModule } from '@angular/forms';
+import { RecipesService } from '../../services/recipes.service';
 
 @Component({
   selector: 'app-recipesearch',

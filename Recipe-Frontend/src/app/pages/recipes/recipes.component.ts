@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { RecipesService } from '../services/recipes.service';
-import { Recipes } from '../interfaces/recipes';
+// import { RecipesService } from '../services/recipes.service';
+// import { Recipes } from '../interfaces/recipes';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
