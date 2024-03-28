@@ -54,7 +54,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'https://u06-fullstack-recipe-app-sebah7.vercel.app'),
 
     'asset_url' => env('ASSET_URL'),
 
