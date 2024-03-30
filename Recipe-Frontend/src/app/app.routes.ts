@@ -5,6 +5,7 @@ import { OnerecipeComponent } from './pages/onerecipe/onerecipe.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 export const routes: Routes = [
  {
@@ -30,5 +31,9 @@ export const routes: Routes = [
  {
   path: 'logout',
   component: LogoutComponent
+ },
+ {
+  path: 'profile',
+  component: ProfileComponent
  }
 ];

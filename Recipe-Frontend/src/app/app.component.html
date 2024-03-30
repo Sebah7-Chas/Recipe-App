@@ -196,10 +196,16 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#d">
+              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#d" [routerLink]="'/profile'">
                 Profile
               </a>
             </li>
+
+            <ul>
+              <li><a [routerLink]="'/login'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Login</a></li>
+              <li><a [routerLink]="'/register'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Register</a></li>
+            </ul>
+
           </ul>
         </div>
       </div>
