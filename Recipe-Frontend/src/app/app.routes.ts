@@ -6,6 +6,7 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { authGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
  {
@@ -34,6 +35,6 @@ export const routes: Routes = [
  },
  {
   path: 'profile',
-  component: ProfileComponent
+  component: ProfileComponent, canActivate:[authGuard],
  }
 ];
