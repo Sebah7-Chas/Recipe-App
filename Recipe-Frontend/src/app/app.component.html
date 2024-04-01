@@ -169,6 +169,8 @@
   }
 </style>
 
+<body class="flex flex-col min-h-screen overflow-hidden">
+
 <header class="flex flex-wrap py-2">
   <div class="w-full px-4">
     <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-purple-500 rounded">
@@ -195,16 +197,29 @@
                 Search Recipes
               </a>
             </li>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
               <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#d" [routerLink]="'/profile'">
                 Profile
               </a>
+            </li> -->
+            <li>
+              <a [routerLink]="'/login'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Login</a>
             </li>
-
-            <ul>
-              <li><a [routerLink]="'/login'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Login</a></li>
-              <li><a [routerLink]="'/register'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Register</a></li>
-            </ul>
+            <li>
+              <a [routerLink]="'/register'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Register</a>
+            </li>
+            <li>
+              <a [routerLink]="'/logout'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Logout</a>
+            </li>
+            @if((loggedIn$ | async)?.loginState ){
+              <li>
+                <a [routerLink]="'/profile'" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+                  Logged in as {{(loggedIn$ | async)?.user?.name}}</a>
+              </li>
+            } @else {<li>
+              <a  [routerLink]="'/login'" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+                Profile</a>
+            </li>}
 
           </ul>
         </div>
@@ -213,7 +228,25 @@
   </div>
 </header>
 
-<main class="main">
+<main class="main flex-grow overflow-auto">
 </main>
 
 <router-outlet/>
+
+<footer  class="flex flex-wrap py-2">
+  <div class="w-full px-4">
+    <div class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-purple-500 rounded">
+      <span class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">© 2024 <a href="http://127.0.0.1:8000" class="hover:underline">TheCookkBookk™</a></span>
+      <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
+          <li>
+              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#">Recipes</a>
+          </li>
+          <li>
+              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#">Search Recipes</a>
+          </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+</body>

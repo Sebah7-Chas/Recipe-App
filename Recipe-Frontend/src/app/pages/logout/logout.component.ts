@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-logout',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './logout.component.css'
 })
 export class LogoutComponent {
+
+  constructor(private auth: AuthService) { }
+
+  logout(){
+    this.auth.logoutUser();
+  }
 
 }
