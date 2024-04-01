@@ -65,21 +65,35 @@ export class AuthService {
   }
 
   getCurrentUser() {
-    if (!this.getLoginStatus()) {
-      return null;
-    }
-    return this.fetchUserDetails();
+    // if (!this.getLoginStatus()) {
+    //   return null;
+    // }
+    // return this.fetchUserDetails();
+    let user: User;
+    user = {
+      id: 0,
+      name: '',
+      email: '',
+      created_at: '',
+    };
+    this.http
+      .get<User[]>(
+        this.baseUrl + 'getUser/' + this.loggedIn.value.user?.id,
+        this.httpOptions
+      )
+      .subscribe((res) => (user = res[0]));
+    return user;
   }
 
-  private fetchUserDetails() {
+  // private fetchUserDetails() {
 
-    return this.http
-    .get<User>(
-      this.baseUrl + 'getUser/' + this.loggedIn.value.user?.id,
-      this.httpOptions
-    )
-    .pipe(catchError(this.handleError));
-  }
+  //   return this.http
+  //   .get<User>(
+  //     this.baseUrl + 'getUser/' + this.loggedIn.value.user?.id,
+  //     this.httpOptions
+  //   )
+  //   .pipe(catchError(this.handleError));
+  // }
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 404) {

@@ -14,14 +14,14 @@ import { AuthService } from '../../services/auth.service';
 export class LoginComponent {
 
   loginDetails: Loggedindetails;
-  isLoggedIn: boolean;
+  // isLoggedIn: boolean;
 
   constructor(private auth: AuthService) {
     this.loginDetails = {
       email: 'mela@mela.mela',
       password: 'mela',
     };
-    this.isLoggedIn = false;
+    // this.isLoggedIn = false;
   }
 
   login(){
