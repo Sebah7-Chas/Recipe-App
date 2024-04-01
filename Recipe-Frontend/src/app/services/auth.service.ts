@@ -20,7 +20,7 @@ export class AuthService {
   });
   loggedIn$ = this.loggedIn.asObservable();
 
-  private baseUrl = 'https://u06-fullstack-recipe-app-sebah7.onrender.com/';
+  private baseUrl = 'https://u06-fullstack-recipe-app-sebah7.onrender.com/api/';
 
   private httpOptions = {
     headers: new HttpHeaders({
