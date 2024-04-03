@@ -202,24 +202,24 @@
                 Profile
               </a>
             </li> -->
-            <li>
-              <a [routerLink]="'/login'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Login</a>
-            </li>
-            <li>
-              <a [routerLink]="'/register'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Register</a>
-            </li>
-            <li>
-              <a [routerLink]="'/logout'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Logout</a>
-            </li>
             @if((loggedIn$ | async)?.loginState ){
               <li>
                 <a [routerLink]="'/profile'" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
                   Logged in as {{(loggedIn$ | async)?.user?.name}}</a>
               </li>
-            } @else {<li>
-              <a  [routerLink]="'/login'" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
-                Profile</a>
-            </li>}
+              <!-- <li>
+                <a  [routerLink]="'/login'" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+                  Profile</a>
+              </li> -->
+            } @else {
+              <li>
+                <a [routerLink]="'/login'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Login</a>
+              </li>
+              <li>
+                <a [routerLink]="'/register'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Register</a>
+              </li>
+
+          }
 
           </ul>
         </div>
@@ -229,9 +229,9 @@
 </header>
 
 <main class="main flex-grow overflow-auto">
+  <router-outlet></router-outlet>
 </main>
 
-<router-outlet/>
 
 <footer  class="flex flex-wrap py-2">
   <div class="w-full px-4">

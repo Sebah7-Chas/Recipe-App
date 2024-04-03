@@ -13,7 +13,7 @@ import { AuthService } from './services/auth.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Recipe-Frontend';
+  title = 'The-CookkBookk';
 
   loggedIn$: Observable<Loggedin>;
 
