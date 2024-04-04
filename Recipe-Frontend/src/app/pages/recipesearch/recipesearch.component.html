@@ -8,21 +8,11 @@
      <input [(ngModel)]="diet" name="diet" placeholder="Diet" type="text" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full">
       <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
       type="submit" (click)="searchRecipes()">Search Recipes</button>
-    </form>
-  </div>
+    </form> </div>
 
   <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
 @for (recipe of recipes; track recipe) {
-  <!-- <h3>{{ recipe.title }}</h3>
-  <img src="{{recipe.image}}" alt="#">
-  <p>{{recipe.totalTime}}</p>
-  <p>{{recipe.selfrefrence}}</p>
-  <p>{{recipe.calories}} calories</p>
-  <ul>
-    @for (ingredientLine of recipe.ingredientLines; track ingredientLine) {
-    <li>{{ingredientLine}}</li>
-    }
-  </ul> -->
+  <!-- <a [routerLink]="['/onerecipe', recipe.selfrefrence, recipe.id]"> -->
   <article class="rounded overflow-hidden shadow-lg flex flex-col">
     <figure class="relative">
         <img class="w-full" [src]="recipe.image" [alt]="recipe.title">
@@ -51,9 +41,11 @@
         <span class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
         <span class="ml-1">{{ roundUp(recipe.calories) }} calories</span>
       </span>
+
+      <button class="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"> 
+        <a [routerLink]="['/onerecipe', recipe.selfrefrence]">View Details</a></button>
     </div>
   </article>
-
 } @empty {
   <p>There are no Recipes</p>
 }

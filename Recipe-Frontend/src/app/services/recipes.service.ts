@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class RecipesService {
 
-  // Sebastian
   private baseUrl = 'https://api.edamam.com/api/recipes/v2?type=public';
   private app_key = 'c47ab9fb67f01fe862db94d2b1bf8302';
   private app_id = '42ff455c';
@@ -22,10 +21,14 @@ export class RecipesService {
 
   constructor(private http:HttpClient) { }
 
-  getRecipes(searchquery: string, cuisineType?: string, mealType?: string, diet?: string, limit: number = 10):Observable<any>{
-    // let cuisineType = "Asian";
-    // let mealType = "Breakfast";
-    // let diet = "balanced";
+// Get recipe by ID
+  getRecipeById(recipeId: string): Observable<any> {
+    const url = `${this.baseUrl}&r=${recipeId}&app_id=${this.app_id}&app_key=${this.app_key}`;
+    return this.http.get<any>(url, this.httpOptions);
+  }
+
+  // Search for recipes
+  getRecipes(searchquery: string, cuisineType?: string, mealType?: string, diet?: string, limit: number = 5):Observable<any>{
 
     let url = this.baseUrl + "&q=" + searchquery + "&app_id=" + this.app_id + "&app_key=" + this.app_key + "&to=" + limit;
     //  + "&diet=" + diet + "&cuisineType=" + cuisineType + "&mealType=" + mealType

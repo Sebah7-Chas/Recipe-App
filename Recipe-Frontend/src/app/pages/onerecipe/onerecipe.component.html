@@ -1,1 +1,7 @@
 <p>onerecipe works!</p>
+
+@if(recipe){
+              {{recipe.title}}
+} @else {
+  <p>Could not find recipe</p>
+}

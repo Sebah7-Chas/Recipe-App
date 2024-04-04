@@ -8,7 +8,7 @@ import { RecipesService } from '../../services/recipes.service';
 @Component({
   selector: 'app-recipesearch',
   standalone: true,
-  imports: [AsyncPipe, FormsModule],
+  imports: [AsyncPipe, FormsModule, RouterLink],
   templateUrl: './recipesearch.component.html',
   styleUrl: './recipesearch.component.css'
 })
@@ -36,7 +36,8 @@ export class RecipesearchComponent {
 
       let recipes = recipeArray.map(item => {
         return {
-          selfrefrence: item._links.self.href,
+          // selfrefrence: item._links.self.href,
+          selfrefrence: item.recipe.uri,
           title: item.recipe.label,
           image: item.recipe.image,
           totalTime: item.recipe.totalTime,
