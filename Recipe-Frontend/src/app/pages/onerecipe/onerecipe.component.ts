@@ -1,45 +1,51 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, ParamMap, RouterLink } from '@angular/router';
 import { RecipesService } from '../../services/recipes.service';
-import { Recipes } from '../../interfaces/recipes';
-
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-onerecipe',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './onerecipe.component.html',
   styleUrl: './onerecipe.component.css'
 })
 export class OnerecipeComponent implements OnInit {
 
-  
-  recipe: any;
+  recipeId?: string;
+  chosenRecipe: any;
 
   constructor(
     private route: ActivatedRoute,
     private recipeService: RecipesService
   ) { }
 
-   ngOnInit(): void {
-
-    const recipeId = this.getDecodedRecipeId(this.route.snapshot.paramMap.get('id'));
-    if (recipeId) {
-      this.recipeService.getRecipeById(recipeId).subscribe({
-        next: (response: any) => {
-          console.log('API Response:', response); 
-          this.recipe = response;
-        },
-        error: (error: any) => {
-          console.error('Error fetching recipe:', error);
-        }
-    });
-    }
+  // Method to round up a number
+  roundUp(num: number): number {
+    return Math.ceil(num);
   }
 
-      private getDecodedRecipeId(encodedId: string | null): string | null {
-        if (!encodedId) {
-          return null;
-        }
-        return decodeURIComponent(encodedId);
+   ngOnInit(): void {
+
+    this.route.paramMap.subscribe((params: ParamMap) => {
+      this.recipeId = String(params.get('id'));
+      if(this.recipeId){
+        console.log(this.recipeId);
+        this.viewRecipe(this.recipeId);
       }
+    })
+
+  }
+
+  viewRecipe(id: string){
+    console.log(`View id:`, id);
+    this.recipeService.getRecipeById(id).subscribe({
+      next:(data )=> {
+        console.log(`recived recipe data:`, data);
+        this.chosenRecipe = data;
+      }, 
+      error: (error) => {
+        console.error(`error fetching recipe`, error);
+      }
+    })
+  } 
 }

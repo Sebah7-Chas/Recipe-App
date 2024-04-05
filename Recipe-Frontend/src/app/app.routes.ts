@@ -18,7 +18,6 @@ export const routes: Routes = [
  },
  {
       path: 'onerecipe/:id',
-      // resolve: [RecipesResolver],
       component: OnerecipeComponent,
  },
  {

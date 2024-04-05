@@ -12,7 +12,6 @@
 
   <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
 @for (recipe of recipes; track recipe) {
-  <!-- <a [routerLink]="['/onerecipe', recipe.selfrefrence, recipe.id]"> -->
   <article class="rounded overflow-hidden shadow-lg flex flex-col">
     <figure class="relative">
         <img class="w-full" [src]="recipe.image" [alt]="recipe.title">
@@ -20,7 +19,6 @@
     </figure>
     <div class="px-6 py-4 mb-auto">
         <h2 href="#" class="font-medium text-lg inline-block hover:text-indigo-600 transition duration-500 ease-in-out mb-2">{{ recipe.title }}</h2>
-        <!-- <p class="text-gray-500 text-sm">{{recipe.selfrefrence}}</p> -->
     </div>
     <div class="px-6 py-3 flex flex-row items-center justify-between bg-gray-100">
         <span class="py-1 text-xs font-regular text-gray-900 mr-1 flex flex-row items-center">
@@ -42,12 +40,14 @@
         <span class="ml-1">{{ roundUp(recipe.calories) }} calories</span>
       </span>
 
-      <button class="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"> 
-        <a [routerLink]="['/onerecipe', recipe.selfrefrence]">View Details</a></button>
+      <button type="submit" class="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150">
+      <a [routerLink]="['/onerecipe', recipe.selfrefrence | recipeidformatter]">View Details</a></button>
+
     </div>
   </article>
 } @empty {
-  <p>There are no Recipes</p>
+  <p>Search for some yummy yum yum recipes!</p>
 }
+
 </section>
 </section>

@@ -21,11 +21,12 @@ export class RecipesService {
 
   constructor(private http:HttpClient) { }
 
-// Get recipe by ID
-  getRecipeById(recipeId: string): Observable<any> {
-    const url = `${this.baseUrl}&r=${recipeId}&app_id=${this.app_id}&app_key=${this.app_key}`;
-    return this.http.get<any>(url, this.httpOptions);
-  }
+getRecipeById(recipeId: string): Observable<any> {
+
+  let recipeUrl = `https://api.edamam.com/api/recipes/v2/`;
+  let url = `${recipeUrl}${recipeId}?type=public&app_id=${this.app_id}&app_key=${this.app_key}`;
+  return this.http.get<any>(url, this.httpOptions);
+}
 
   // Search for recipes
   getRecipes(searchquery: string, cuisineType?: string, mealType?: string, diet?: string, limit: number = 5):Observable<any>{
