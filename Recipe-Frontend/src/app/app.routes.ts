@@ -14,11 +14,11 @@ export const routes: Routes = [
  },
  {
   path: 'recipesearch',
-  component: RecipesearchComponent
+  component: RecipesearchComponent,
  },
  {
-  path: 'onerecipe:id',
-  component: OnerecipeComponent
+      path: 'onerecipe/:id',
+      component: OnerecipeComponent,
  },
  {
   path: 'register',
