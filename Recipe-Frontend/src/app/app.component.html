@@ -169,11 +169,10 @@
   }
 </style>
 
-<body class="flex flex-col min-h-screen overflow-hidden">
-
-<header class="flex flex-wrap py-2">
-  <div class="w-full px-4">
-    <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-purple-500 rounded">
+<body>
+<header class="flex flex-wrap p-0">
+  <div class="w-full p-0">
+    <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-purple-300 rounded">
       <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
         <div class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
           <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="#a">
@@ -228,25 +227,16 @@
   </div>
 </header>
 
-<main class="main flex-grow overflow-auto">
+<main class="main flex-grow overflow-auto pb-16">
   <router-outlet></router-outlet>
 </main>
 
 
-<footer  class="flex flex-wrap py-2">
-  <div class="w-full px-4">
-    <div class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-purple-500 rounded">
-      <span class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">© 2024 <a href="" class="hover:underline">TheCookkBookk™</a></span>
-      <!-- <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-gray-500 dark:text-gray-400 sm:mt-0">
-          <li>
-              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#">Recipes</a>
-          </li>
-          <li>
-              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#">Search Recipes</a>
-          </li>
-      </ul> -->
+<footer class="flex justify-center items-end p-0 h-screen">
+  <div class="w-full p-0">
+    <div class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-purple-300 rounded">
+      <span class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">© 2024 <a href="#" class="hover:underline">TheCookkBookk™</a></span>
     </div>
   </div>
 </footer>
-
 </body>

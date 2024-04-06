@@ -8,8 +8,8 @@
 
       <article class="mb-4 pt-5 px-6 max-w-xl md:max-w-5xl md:w-1/2">
         <h2 class="text-3xl font-medium text-blue-600">{{chosenRecipe.recipe.label}}</h2>
-        <span class="bg-purple-400 text-gray-50 text-sm font-light rounded-md px-2 py-1">{{ chosenRecipe.recipe.totalTime }} mins</span>
-        <span class="bg-purple-400 text-gray-50 text-sm font-light rounded-md px-2 py-1">{{ roundUp(chosenRecipe.recipe.calories) }} kcal</span>
+        <span class="bg-purple-300 text-gray-50 text-sm font-light rounded-md px-2 py-1">{{ chosenRecipe.recipe.totalTime }} mins</span>
+        <span class="bg-purple-300 text-gray-50 text-sm font-light rounded-md px-2 py-1">{{ roundUp(chosenRecipe.recipe.calories) }} kcal</span>
         <p class="mt-4 text-gray-600 text-base font-regular">Allergen cautions: {{chosenRecipe.recipe.cautions}}</p>
         <p class="mt-4 text-gray-600 text-base font-regular">Cuisine: {{chosenRecipe.recipe.cuisineType}}</p>
         <p><a href="{{chosenRecipe.recipe.url}}" target="_blank" class="bg-purple-400 text-gray-50 text-sm font-light rounded-md px-2 py-1">Get the directions from source</a></p>

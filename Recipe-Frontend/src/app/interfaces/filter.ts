@@ -1,7 +1,8 @@
 export interface Filter {
-  health: string;
+  dietLabels: string;
   cuisineTypes: string;
+  healthLabels: string;
   mealTypes: string;
-  dishType: string;
+  dishTypes: string;
   query: string;
 }
