@@ -176,11 +176,15 @@
       <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
           <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
               <!-- <img src="../assets/logoTheCookkBookk.jpg" class="h-8" alt="The Cookk Bookk Logo"> -->
-              <span class="self-center text-3xl font-bold whitespace-nowrap dark:text-white">The Cookk Bookk</span>
+              <span class="self-center text-3xl font-bold whitespace-nowrap dark:text-white" [routerLink]="'/landing'">The Cookk Bookk</span>
           </a>
           <div class="flex items-center space-x-6 rtl:space-x-reverse">
             <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
             <li>
+                <a href="#" class="text-sm  text-white-600 dark:text-white-500 hover:underline uppercase font-bold leading-snug text-white hover:opacity-75" [routerLink]="'/landing'">
+                  Home</a>
+            </li>
+              <li>
                 <a href="#" class="text-sm  text-white-600 dark:text-white-500 hover:underline uppercase font-bold leading-snug text-white hover:opacity-75" [routerLink]="'/recipesearch'">
                   Search Recipes</a>
             </li>
