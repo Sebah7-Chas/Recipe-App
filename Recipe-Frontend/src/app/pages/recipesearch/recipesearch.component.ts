@@ -29,6 +29,7 @@ export class RecipesearchComponent {
   constructor(private recipeService: RecipesService) {}
 
   searchRecipes(){
+
     this.recipeService.getRecipes(this.searchQuery, this.cuisineType, this.mealType, this.healthLabels, this.dishType).subscribe(res=>{
       console.log('API Response:', res);
 
