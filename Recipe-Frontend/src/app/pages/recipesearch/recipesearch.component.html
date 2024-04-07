@@ -1,14 +1,71 @@
 
-<section class="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+<section class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="relative isolate overflow-hidden px-6 py-20 text-center sm:px-16 sm:shadow-sm">
+      <p class="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-black-600 sm:text-4xl">
+        Hungry? Search for some yum yum recipes!
+      </p>
+
     <div class="mb-3 pt-0">
     <form (submit)="searchRecipes()">
-     <input [(ngModel)]="searchQuery" name="searchQuery" placeholder="Search query" type="text" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full">
-     <input [(ngModel)]="cuisineType" name="cuisineType" placeholder="Cuisine type" type="text" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full">
-     <input [(ngModel)]="mealType" name="mealType" placeholder="Meal type" type="text" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full">
-     <input [(ngModel)]="diet" name="diet" placeholder="Diet" type="text" class="px-3 py-3 placeholder-blueGray-300 text-blueGray-600 relative bg-white rounded text-sm border-0 shadow outline-none focus:outline-none focus:ring w-full">
-      <button class="bg-pink-500 text-white active:bg-pink-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150" 
-      type="submit" (click)="searchRecipes()">Search Recipes</button>
-    </form> </div>
+      <label class="mx-auto mt-8 relative bg-white min-w-sm max-w-2xl flex flex-col md:flex-row items-center justify-center border py-2 px-2 rounded-2xl gap-2 shadow-2xl focus-within:border-gray-300" for="search-bar">
+     <input [(ngModel)]="searchQuery" name="searchQuery" placeholder="Search ingredients or recipe" type="text" class="px-6 py-2 w-full rounded-md flex-1 outline-none bg-white">
+     <button class="w-full md:w-auto px-6 py-3 bg-pink-300 border-black text-white fill-white active:scale-95 duration-100 border will-change-transform overflow-hidden relative rounded-xl transition-all" 
+     type="submit" (click)="searchRecipes()">Search Recipes</button>
+     </label>
+   </form>
+</div>
+
+     <select [(ngModel)]="cuisineType" name="cuisineType" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mx-4">
+      <option value="">Cuisine</option>
+      <option value="American">American</option>
+      <option value="Asian">Asian</option>
+      <option value="British">British</option>
+      <option value="Caribbean">Caribbean</option>
+      <option value="Central Europe">Central Europe</option>
+      <option value="Chinese">Chinese</option>
+      <option value="Eastern Europe">Eastern Europe</option>
+      <option value="Nordic">Nordic</option>
+      <option value="French">French</option>
+      <option value="Indian">Indian</option>
+      <option value="Italian">Italian</option>
+      <option value="Japanese">Japanese</option>
+      <option value="Kosher">Kosher</option>
+      <option value="Mediterranean">Mediterranean</option>
+      <option value="Mexican">Mexican</option>
+    </select>
+
+    <select [(ngModel)]="mealType" name="mealType" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mx-4">
+      <option value="">Meal type</option>
+      <option value="Breakfast">Breakfast</option>
+      <option value="Lunch">Lunch</option>
+      <option value="Dinner">Dinner</option>
+      <option value="Snack">Snack</option>
+      <option value="Teatime">Teatime</option>
+      <!-- Add options dynamically if needed -->
+    </select>
+
+    <select [(ngModel)]="healthLabels" name="healthLabels" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mx-4">
+      <option value="">Allergens | Diet</option>
+      <option value="Alcohol-Free">Alcohol free</option>
+      <option value="fish-free">Fish free</option>
+      <option value="peanut-free">Peanut free</option>
+      <option value="wheat-free">Gluten free</option>
+      <option value="Vegan">Vegan</option>
+      <option value="Vegetarian">Vegetarian</option>
+        </select>
+
+        <select [(ngModel)]="dishType" name="dishType" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 mx-4">
+        <option value="">Dish Type</option>
+        <option value="starter">Starters</option>
+        <option value="desserts">Dessert</option>
+        <option value="main course">Main Course</option>
+        <option value="salad">Salad</option>
+        <option value="soup">Soup</option>
+        <option value="bread">Bread</option>
+
+        </select>
+      </div>
+    </section>
 
   <section class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
 @for (recipe of recipes; track recipe) {
@@ -46,8 +103,6 @@
     </div>
   </article>
 } @empty {
-  <p>Search for some yummy yum yum recipes!</p>
+  <p class="text-3xl font-bold leading-tight mb-4">Yummiest yum yum!</p>
 }
-
-</section>
 </section>

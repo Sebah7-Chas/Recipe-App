@@ -6,4 +6,7 @@ export interface Recipes {
   url: string,
   calories: number,
   selfref: string
+  dietLabels: string;
+  cuisineTypes: string;
+  healthLabels: string;
 }

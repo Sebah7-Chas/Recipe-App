@@ -19,16 +19,17 @@ export class RecipesearchComponent {
     return Math.ceil(num);
   }
   
-  recipes?: any;
+  recipes: any[] = [];
   searchQuery: string = '';
   cuisineType: string = '';
   mealType: string = '';
-  diet: string = '';
+  healthLabels: string = '';
+  dishType: string = '';
 
-  constructor(private recipeService: RecipesService){}
+  constructor(private recipeService: RecipesService) {}
 
   searchRecipes(){
-    this.recipeService.getRecipes(this.searchQuery, this.cuisineType, this.mealType, this.diet).subscribe(res=>{
+    this.recipeService.getRecipes(this.searchQuery, this.cuisineType, this.mealType, this.healthLabels, this.dishType).subscribe(res=>{
       console.log('API Response:', res);
 
       let recipeArray: any[];
@@ -50,5 +51,4 @@ export class RecipesearchComponent {
       this.recipes = recipes;
     });
   }
-
 }
