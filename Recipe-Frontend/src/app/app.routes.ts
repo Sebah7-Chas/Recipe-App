@@ -31,5 +31,9 @@ export const routes: Routes = [
  {
   path: 'profile',
   component: ProfileComponent, canActivate:[authGuard],
- }
+ },
+ {
+  path: 'landing',
+  component: LandingComponent,
+}
 ];
