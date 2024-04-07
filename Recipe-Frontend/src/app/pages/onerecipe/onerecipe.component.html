@@ -10,26 +10,40 @@
         <h2 class="text-3xl font-medium text-blue-600">{{chosenRecipe.recipe.label}}</h2>
         <span class="bg-purple-300 text-gray-50 text-sm font-light rounded-md px-2 py-1">{{ chosenRecipe.recipe.totalTime }} mins</span>
         <span class="bg-purple-300 text-gray-50 text-sm font-light rounded-md px-2 py-1">{{ roundUp(chosenRecipe.recipe.calories) }} kcal</span>
-        <p class="mt-4 text-gray-600 text-base font-regular">Allergen cautions: {{chosenRecipe.recipe.cautions}}</p>
+        <!-- <p class="mt-4 text-gray-600 text-base font-regular">Allergen cautions: {{chosenRecipe.recipe.healthLabels}}</p> -->
         <p class="mt-4 text-gray-600 text-base font-regular">Cuisine: {{chosenRecipe.recipe.cuisineType}}</p>
+        <p class="mt-4 text-gray-600 text-base font-regular">Meal type: {{chosenRecipe.recipe.mealType}}</p>
+        <p class="mt-4 text-gray-600 text-base font-regular">Dish type: {{chosenRecipe.recipe.dishType}}</p>
         <p><a href="{{chosenRecipe.recipe.url}}" target="_blank" class="bg-purple-400 text-gray-50 text-sm font-light rounded-md px-2 py-1">Get the directions from source</a></p>
       </article>
     </section>
 
-<div>
-  <div class="py-5 flex justify-center">
-    <div class="bg-white w-11/12 md:w-7/10 md:mx-8 md:flex md:max-w-5xl shadow-lg rounded-lg">
-      <div class="pt-5 px-6 max-w-xl lg:max-w-5xl mb-4">
-        <h2 class="text-2xl font-medium text-blue-600">Ingredients:<span class="text-indigo-600"></span></h2>
-         <ul>
-          @for (ingredientLine of chosenRecipe.recipe.ingredientLines; track ingredientLine) {
-          <li class="mt-4 font-regular text-base">{{ingredientLine}}</li>
-          }
-      </ul>
+    <div class="py-5 flex justify-center">
+      <div class="bg-white w-11/12 md:w-7/10 md:mx-8 md:flex md:max-w-5xl shadow-lg rounded-lg">
+        <div class="pt-5 px-6 max-w-xl lg:max-w-5xl mb-4 md:flex md:justify-between"> <!-- Added flex and justify-between -->
+          <div>
+            <h2 class="text-2xl font-medium text-blue-600">Allergens:</h2>
+            <ul>
+              @for (healthLabels of chosenRecipe.recipe.healthLabels; track healthLabels) {
+              <li class="mt-4 font-regular text-base">{{healthLabels}}</li>
+              }
+            </ul>
+          </div>
+
+          <div class="md:border-l-2 md:pl-6">
+
+          </div>
+          <div>
+            <h2 class="text-2xl font-medium text-blue-600">Ingredients:<span class="text-indigo-600"></span></h2>
+            <ul>
+              @for (ingredientLine of chosenRecipe.recipe.ingredientLines; track ingredientLine) {
+              <li class="mt-4 font-regular text-base">{{ingredientLine}}</li>
+              }
+            </ul>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 } @else {
   <p>Well ... it seems we lost the recipe. Let's try search again.</p>
 }
