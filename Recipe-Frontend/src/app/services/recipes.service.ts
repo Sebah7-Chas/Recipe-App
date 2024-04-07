@@ -28,8 +28,9 @@ getRecipeById(recipeId: string): Observable<any> {
   return this.http.get<any>(url, this.httpOptions);
 }
 
+
   // Search for recipes
-  getRecipes(searchquery: string, cuisineType?: string, mealType?: string, diet?: string, limit: number = 5):Observable<any>{
+  getRecipes(searchquery: string, cuisineType?: string, mealType?: string, healthLabels?: string, dishType?: string, limit: number = 5):Observable<any>{
 
     let url = this.baseUrl + "&q=" + searchquery + "&app_id=" + this.app_id + "&app_key=" + this.app_key + "&to=" + limit;
     //  + "&diet=" + diet + "&cuisineType=" + cuisineType + "&mealType=" + mealType
@@ -42,8 +43,12 @@ getRecipeById(recipeId: string): Observable<any> {
       url += "&mealType=" + mealType;
     }
     
-    if(diet && diet.trim() !== '') {
-      url += "&diet=" + diet;
+    if(healthLabels && healthLabels.trim() !== '') {
+      url += "&healthLabels=" + healthLabels;
+    }
+
+    if(dishType && dishType.trim() !== '') {
+      url += "&dishType=" + dishType;
     }
 
     return this.http.get<any>(url, this.httpOptions);
