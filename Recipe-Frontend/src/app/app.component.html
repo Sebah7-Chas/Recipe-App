@@ -169,74 +169,52 @@
   }
 </style>
 
-<body>
-<header class="flex flex-wrap p-0">
+<!-- <body class="flex flex-col overflow-hidden"> -->
+<header class="flex flex-wrap">
   <div class="w-full p-0">
-    <nav class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-purple-300 rounded">
-      <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-        <div class="w-full relative flex justify-between lg:w-auto px-4 lg:static lg:block lg:justify-start">
-          <a class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white" href="#a">
-            The Cookk Bookk
+    <nav class="bg-purple-300 border-gray-200 dark:bg-pink-200">
+      <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-4">
+          <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
+              <!-- <img src="../assets/logoTheCookkBookk.jpg" class="h-8" alt="The Cookk Bookk Logo"> -->
+              <span class="self-center text-3xl font-bold whitespace-nowrap dark:text-white">The Cookk Bookk</span>
           </a>
-          <button class="text-white cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button">
-            <!-- (click)="toggleNavbar()" -->
-            <i class="fas fa-bars">button</i>
-          </button>
-        </div>
-        <div class="lg:flex lg:flex-grow items-center">
-          <!-- [ngClass]="{'hidden': !menuShow, 'flex': menuShow}" -->
-          <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-            <!-- <li class="nav-item">
-              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#b" [routerLink]="'/landing'">
-                Recipes
-              </a>
-            </li> -->
-            <li class="nav-item">
-              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#c" [routerLink]="'/recipesearch'">
-                Search Recipes
-              </a>
+          <div class="flex items-center space-x-6 rtl:space-x-reverse">
+            <ul class="flex flex-row font-medium mt-0 space-x-8 rtl:space-x-reverse text-sm">
+            <li>
+                <a href="#" class="text-sm  text-white-600 dark:text-white-500 hover:underline uppercase font-bold leading-snug text-white hover:opacity-75" [routerLink]="'/recipesearch'">
+                  Search Recipes</a>
             </li>
-            <!-- <li class="nav-item">
-              <a class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75" href="#d" [routerLink]="'/profile'">
-                Profile
-              </a>
-            </li> -->
             @if((loggedIn$ | async)?.loginState ){
               <li>
-                <a [routerLink]="'/profile'" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
+                <a [routerLink]="'/profile'" class="text-sm  text-white-600 dark:text-white-500 hover:underline uppercase font-bold leading-snug text-white hover:opacity-75">
                   Logged in as {{(loggedIn$ | async)?.user?.name}}</a>
               </li>
-              <!-- <li>
-                <a  [routerLink]="'/login'" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">
-                  Profile</a>
-              </li> -->
             } @else {
               <li>
-                <a [routerLink]="'/login'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Login</a>
+                <a [routerLink]="'/login'" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-sm  text-white-600 dark:text-white-500 hover:underline uppercase font-bold leading-snug text-white hover:opacity-75">Login</a>
               </li>
               <li>
-                <a [routerLink]="'/register'" routerLinkActive="active" ariaCurrentWhenActive="page" class="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-white hover:opacity-75">Register</a>
+                <a [routerLink]="'/register'" routerLinkActive="active" ariaCurrentWhenActive="page" class="text-sm  text-white-600 dark:text-white-500 hover:underline uppercase font-bold leading-snug text-white hover:opacity-75">Register</a>
               </li>
-
           }
-
-          </ul>
-        </div>
+        </ul>
+          </div>
       </div>
-    </nav>
+  </nav>
+
   </div>
 </header>
 
-<main class="main flex-grow overflow-auto pb-16">
+<main class="flex flex-wrap">
   <router-outlet></router-outlet>
 </main>
 
 
 <footer class="flex justify-center items-end p-0 h-screen">
   <div class="w-full p-0">
-    <div class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-purple-300 rounded">
-      <span class="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">© 2024 <a href="#" class="hover:underline">TheCookkBookk™</a></span>
+    <div class="relative flex flex-wrap items-center justify-between px-2 py-3 bg-purple-300 border-gray-200 dark:bg-pink-200 rounded">
+      <span class="text-2xl font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-white">© 2024 <a href="#" class="hover:underline text-2xl">TheCookkBookk™</a></span>
     </div>
   </div>
 </footer>
-</body>
+<!-- </body> -->
